@@ -10,11 +10,13 @@ A script that takes a starting coordinate and ending coordinate for a standard 8
 
 - Implement search algorithm in a real-world example
 - Implement a directional graph
-- Become more familiar with the basics of graph theory
+- Become more familiar with the basics of graph theory, and how breadth-first searches can be useful (i.e. to avoid infinite loops!)
 
 ## Usage
 
 Positions on the chess board are stored as arrays representing coordinates, in the form [a, b]. a and b are both between 0 and 7 (inclusive).
+
+Note: this impelmentation returns the first (and therefore shortest) path found. Other paths of equal length may also exist.
 
 ## Example
 
