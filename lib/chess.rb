@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Module with chess board helper functions
+# Module with chess board helper function
 module Chess
   def within_bounds(position)
     return false unless position[0].between?(0, 7)

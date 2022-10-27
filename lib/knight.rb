@@ -8,6 +8,11 @@ class Knight
 
   attr_reader :position, :parent
 
+  # "position" is an array representing a coordinate [a, b] showing the position
+  # of the knight on the chess board. a and b are between 0 and 7.
+  # "parent" can be used to point to the Knight object in its previous position.
+  # This allows the history of a Knight's movements to be tracked by following
+  # the linked list of parents.
   def initialize(position, parent = nil)
     @position = position
     @parent = parent
