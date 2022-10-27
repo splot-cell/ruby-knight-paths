@@ -10,7 +10,7 @@ A script that takes a starting coordinate and ending coordinate for a standard 8
 
 - Implement search algorithm in a real-world example
 - Implement a directional graph
-- Become more familiar with the basics of graph theory, and how breadth-first searches can be useful (i.e. to avoid infinite loops!)
+- Become more familiar with the basics of graph theory, and how breadth-first searches can be useful (i.e. to avoid infinite loops, and to find the shortest path)
 
 ## Usage
 
