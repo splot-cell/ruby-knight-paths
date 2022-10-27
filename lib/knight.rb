@@ -6,8 +6,11 @@ require_relative "./chess"
 class Knight
   include Chess
 
-  def initialize(position)
+  attr_reader :position, :parent
+
+  def initialize(position, parent = nil)
     @position = position
+    @parent = parent
   end
 
   # An array of absolute positions of the knight after making all possible moves
@@ -39,6 +42,3 @@ class Knight
     [x, y]
   end
 end
-
-k = Knight.new([6, 6])
-pp k.possible_moves
