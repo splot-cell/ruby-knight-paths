@@ -13,8 +13,8 @@ class Knight
   # An array of absolute positions of the knight after making all possible moves
   # from its current position
   def possible_moves
-    possible_translations.map { &translate_position }
-                         .keep_if { &within_bounds }
+    possible_translations.map { |t| translate_position(t) }
+                         .keep_if { |p| within_bounds(p) }
   end
 
   private
@@ -31,10 +31,14 @@ class Knight
      [-2, -1]]
   end
 
-  # Translates the knight's current position by arr in form of [x, y]
-  # New position is [current x + x, current y + y]
+  # Returns the knight's current position translated by arr in form of [a, b]
+  # New position is [current x + a, current y + b]
   def translate_position(arr)
-    @position[0] += arr[0]
-    @position[1] += arr[1]
+    x = @position[0] + arr[0]
+    y = @position[1] + arr[1]
+    [x, y]
   end
 end
+
+k = Knight.new([6, 6])
+pp k.possible_moves
