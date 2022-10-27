@@ -2,27 +2,33 @@
 
 require_relative "./knight"
 
-# Returns an array showing the shortest possible moves between the current_pos
-# and the target_pos for a knight on a chess board.
+# Returns an array showing the shortest possible set of moves between the
+# starting_pos and the target_pos for a knight on a chess board.
 # Positions are arrays representing coordinates in the form [a, b], where a and
 # b are between 0 and 7.
-def knight_moves(current_pos, target_pos)
-  starting_knight = Knight.new(current_pos)
+def knight_moves(starting_pos, target_pos)
+  k = Knight.new(starting_pos)
   queue = []
-  k = starting_knight
-
+  # Perform breadth-first search until a Knight with target position is found
   until k.position == target_pos
-    k.possible_moves.map { |position| Knight.new(position, k) }
-                    .each { |child| queue << child }
+    k.possible_moves
+     .map { |position| Knight.new(position, k) }
+     .each { |child| queue << child }
     k = queue.shift
   end
 
-  steps = []
-  until k.nil?
-    steps << k.position
-    k = k.parent
-  end
-  steps.reverse
+  # Retrieve the history of the found Knight's moves, then reverse it to give
+  # the steps from starting_pos to ending_pos
+  move_history(k).reverse
 end
 
-pp knight_moves([1, 1], [5, 5])
+def move_history(knight)
+  steps = []
+  until knight.nil?
+    steps << knight.position
+    knight = knight.parent
+  end
+  steps
+end
+
+pp knight_moves([0, 0], [7, 7])
