@@ -30,5 +30,3 @@ def move_history(knight)
   end
   steps
 end
-
-pp knight_moves([0, 0], [7, 7])
